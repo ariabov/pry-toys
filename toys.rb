@@ -1,3 +1,7 @@
+Pry.config.hooks.add_hook(:before_session, :say_hi) do
+  # Can add array here
+end
+
 class Array
   def self.toy(n=10, type=Integer, &block)
     return Array.new(n,&block) if block_given?
@@ -9,8 +13,14 @@ class Array
     when 'String'
       words = String.toy(n).split
       Array.new(n) {|i| words[i]}
+    when 'Time'
+      time_now = Time.now
+      Array.new(n) {|i| time_now + (i * (60 * 60 * 24)) }
+    when 'Date'
+      date_now = Date.today
+      Array.new(n) {|i| date_now + (i * 1) }
     else
-      raise ElseIsCalled
+      Array.new(n) { type.send(:new) }
     end
   end
 end

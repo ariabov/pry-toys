@@ -56,6 +56,40 @@ describe 'pry-toys' do
 
           include_examples "no nil values"
         end
+
+        context "Time" do
+          let(:type) { Time }
+          let(:toy) { Array.toy(3, type) }
+          let(:day) { 60 * 60 * 24 }
+
+          it "returns Time object" do
+            expect(toy.first).to be_an_instance_of type
+          end
+
+          it "returns Time object 1 day apart" do
+            expect(toy[1]).to eq (toy[0] + day)
+          end
+        end
+
+        context "Date" do
+          let(:toy) { Array.toy(3, Date) }
+          let(:day) { 1 }
+
+          it "returns Time object" do
+            expect(toy.first).to be_an_instance_of Date
+          end
+
+          it "returns Time object 1 day apart" do
+            expect(toy[1]).to eq (toy[0] + day)
+          end
+        end
+
+        context "Unknown" do
+          it "works with Object" do
+            expect(Array.toy(3, Object).first).to be_an_instance_of Object
+            expect(Array.toy(3, Object).size).to eq 3
+          end
+        end
       end
     end
 
