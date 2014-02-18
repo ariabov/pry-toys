@@ -12,3 +12,5 @@ class Toy
     end
   end
 end
+
+class NoNewMethodError < Exception; end

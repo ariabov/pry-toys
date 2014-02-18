@@ -16,7 +16,10 @@ class Array
       date_now = Date.today
       Array.new(n) {|i| date_now + (i * 1) }
     else
-      Array.new(n) { type.send(:new) }
+      Array.new(n) do 
+        type.send(:new) rescue
+          raise NoNewMethodError, 'Please provide Object that responds to `new` call'
+      end
     end
   end
 end
