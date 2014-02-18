@@ -1,7 +1,3 @@
-Pry.config.hooks.add_hook(:before_session, :say_hi) do
-  # Can add array here
-end
-
 class Array
   def self.toy(n=10, type=Integer, &block)
     return Array.new(n,&block) if block_given?
@@ -24,23 +20,6 @@ class Array
     end
   end
 end
+ 
 
-class Hash
-  def self.toy(n=10)
-    Hash[Array.toy(n) {|m| ('a'..'zz').to_a[m] }.zip(Array.toy(n))]
-  end
-end
-
-class String
-  def self.toy(n=25)
-    alphabet = ('a'..'z').to_a
-    phrase = String.new
-    i = 0
-    while i < n do 
-      phrase << alphabet[rand(alphabet.size)] * (rand(10) + 1)
-      i += 1
-      phrase << ' '
-    end
-    phrase
-  end
-end
+ 

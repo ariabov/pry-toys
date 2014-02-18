@@ -1,4 +1,5 @@
-require_relative 'toys'
+require "pry-toys"
+require "rspec"
 
 RSpec.configure do |config|
   # Use color in STDOUT
