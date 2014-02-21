@@ -1,4 +1,4 @@
-class Array
+Array.class_eval do
   def self.toy(n=10, type=Integer, &block)
     return Array.new(n,&block) if block_given?
     case type.to_s

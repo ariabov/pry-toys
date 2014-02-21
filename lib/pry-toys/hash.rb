@@ -1,4 +1,4 @@
-class Hash
+Hash.class_eval do
   def self.toy(n=10)
     range = toy_size(n).to_a
     Hash[Array.toy(n) {|m| range[m] }.zip(Array.toy(n))]

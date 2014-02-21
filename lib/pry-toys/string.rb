@@ -1,4 +1,4 @@
-class String
+String.class_eval do
   def self.toy(n=25)
     alphabet = ('a'..'z').to_a
     phrase = String.new
