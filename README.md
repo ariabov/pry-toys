@@ -1,1 +1,1 @@
-Inspired by https://gdsist.github.com/lucapette/807492
+Inspired by https://gist.github.com/lucapette/807492
