@@ -1,4 +1,6 @@
-Inspired by https://gist.github.com/lucapette/807492
+# Pry-Toys
+
+The idea was to simplify the process of creating Ruby objects to play around with __pry__. Now, creating Hash object with 100 keys inside __pry__ is as simple as `Hash.toy(100)`. The idea was inspired by https://gist.github.com/lucapette/807492
 
 ## Installation
 
@@ -81,6 +83,14 @@ Creates a string with certain number of words. In this case, words are random co
 
 ## Contributing
 
-To test the gem, use the following rake task:
+1) Form the project
 
+2) Make changes
+
+3) Test changes using the following task:
+  
     rake spec
+
+4) Commit changes. Please do not change `pry-toys.gemspec` on the version you are planning to submit for the pull request.
+
+5) Send a pull request
