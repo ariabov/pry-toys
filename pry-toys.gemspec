@@ -7,7 +7,7 @@ Gem::Specification.new do |spec|
   spec.version       = '0.0.2'
   spec.authors       = ["ariabov"]
   spec.email         = ["alexariabov@gmail.com"]
-  spec.summary       = "Add toy objects to Pry"
+  spec.summary       = "Toy objects for Pry"
   spec.description   = ""
   spec.homepage      = "http://github.com/ariabov/pry-toys"
   spec.license       = "MIT"
