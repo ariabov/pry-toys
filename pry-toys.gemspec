@@ -7,9 +7,9 @@ Gem::Specification.new do |spec|
   spec.version       = '0.0.1'
   spec.authors       = ["ariabov"]
   spec.email         = ["alexariabov@gmail.com"]
-  spec.summary       = %q{Add toy objects to Pry}
+  spec.summary       = "Add toy objects to Pry"
   spec.description   = ""
-  spec.homepage      = ""
+  spec.homepage      = "http://github.com/ariabov/pry-toys"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0")
@@ -17,6 +17,8 @@ Gem::Specification.new do |spec|
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ["lib"]
 
-  spec.add_development_dependency "bundler", "~> 1.5"
-  spec.add_development_dependency "rake"
+  spec.add_development_dependency 'bundler', '~> 1.5'
+  spec.add_development_dependency 'rake'
+  spec.add_development_dependency 'rspec'
+  spec.add_runtime_dependency 'pry'
 end

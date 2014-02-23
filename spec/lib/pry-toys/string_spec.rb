@@ -11,4 +11,8 @@ describe String do
   it "has right number of words" do
     expect(toy.split.size).to eq n
   end
+
+  it "does not end with space" do
+    expect(toy[-1]).to_not eq ' '
+  end
 end
