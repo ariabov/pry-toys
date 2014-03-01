@@ -1,6 +1,18 @@
 # Pry-Toys
 
-The idea was to simplify the process of creating Ruby objects to play around with __pry__. Now, creating Hash object with 100 keys inside __pry__ is as simple as `Hash.toy(100)`. The idea was inspired by https://gist.github.com/lucapette/807492
+For the times when you need to create a throwaway __Array__ of Floats:
+
+    Array.toy(3, Float) # => [1.0, 2.0, 3.0]
+
+or __Hash__ with 300 keys:    
+    
+    Hash.toy(300) # => { a: 1, b: 2, ..., kn: 300 }
+
+or __String__ with 2 words:
+
+    String.toy(2) # => "ttttttt oooo"
+
+After gem is installed, these toy / throwaway Ruby objects are loaded in automatically when __pry__ is started. The idea was inspired by [this](https://gist.github.com/lucapette/807492)
 
 ## Installation
 
@@ -38,26 +50,26 @@ Here are some of the things you can do with __pry-toys__:
 
 With only size set
 
-    String.toy(3) # => [1, 2, 3]
+    Array.toy(3) # => [1, 2, 3]
 
 With size & block
   
-    String.toy(3) {|i| i + 3} # => [3, 6, 9]
+    Array.toy(3) {|i| i + 3} # => [3, 6, 9]
   
 With size & one of the pre-determined objects, such as Integer (default), Float, String, Time, Date set
   
-    String.toy(3, Float) # => [1.0, 2.0, 3.0]
-    String.toy(3, String) # => ['tt', 'uuuu', 'cc']
-    String.toy(3, Time) # => [2014-02-22 08:49:49 -0800,
-                              2014-02-23 08:49:49 -0800,
-                              2014-02-24 08:49:49 -0800]
-    String.toy(3, Date) # => [#<Date: 2014-02-22 ((2456711j,0s,0n),+0s,2299161j)>,
-                              #<Date: 2014-02-23 ((2456712j,0s,0n),+0s,2299161j)>,
-                              #<Date: 2014-02-24 ((2456713j,0s,0n),+0s,2299161j)>]
+    Array.toy(3, Float) # => [1.0, 2.0, 3.0]
+    Array.toy(3, String) # => ['tt', 'uuuu', 'cc']
+    Array.toy(3, Time) # => [2014-02-22 08:49:49 -0800,
+                             2014-02-23 08:49:49 -0800,
+                             2014-02-24 08:49:49 -0800]
+    Array.toy(3, Date) # => [#<Date: 2014-02-22 ((2456711j,0s,0n),+0s,2299161j)>,
+                             #<Date: 2014-02-23 ((2456712j,0s,0n),+0s,2299161j)>,
+                             #<Date: 2014-02-24 ((2456713j,0s,0n),+0s,2299161j)>]
 
 With size & an unknown object (that responds to new)
 
-    String.toy(3, Object) # => [#<Object:0x007fa36e9b9128>,
+    Array.toy(3, Object) # => [#<Object:0x007fa36e9b9128>,
                             #<Object:0x007fa36e9b9100>,
                             #<Object:0x007fa36e9b90d8>]
 
