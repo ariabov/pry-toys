@@ -2,15 +2,21 @@
 
 For the times when you need to create a throwaway __Array__ of Floats:
 
-    Array.toy(3, Float) # => [1.0, 2.0, 3.0]
+```ruby
+Array.toy(3, Float) # => [1.0, 2.0, 3.0]
+```
 
 or __Hash__ with 300 keys:    
-    
-    Hash.toy(300) # => { a: 1, b: 2, ..., kn: 300 }
+
+```ruby    
+Hash.toy(300) # => { a: 1, b: 2, ..., kn: 300 }
+```
 
 or __String__ with 2 words:
 
-    String.toy(2) # => "ttttttt oooo"
+```ruby
+String.toy(2) # => "ttttttt oooo"
+```
 
 After gem is installed, these toy / throwaway Ruby objects are loaded in automatically when __pry__ is started. The idea was inspired by [this](https://gist.github.com/lucapette/807492)
 
@@ -18,27 +24,37 @@ After gem is installed, these toy / throwaway Ruby objects are loaded in automat
 
 You can either install gem individually or you can add it to your Gemfile. To add the gem directly, type in the following in your terminal line:
 
-    gem install pry-toys
+```ruby
+gem install pry-toys
+```
 
 Alternatively, if your project has a `Gemfile`, you can add __pry-toys__ there:
 
-    gem 'pry-toys'
+```ruby
+gem 'pry-toys'
+```
 
 Or if you would like to add the gem to specific group, you can do the following:
 
-    group :development, :test do
-      gem 'pry-toys'
-    end
+```ruby
+group :development, :test do
+  gem 'pry-toys'
+end
+```
 
 This will ensure that the gem is only loaded in `development` or `test` environments, but not in `production`. Do not forget to run
 
-    bundle install
+```ruby
+bundle install
+```
 
 after adding the __pry-toys__ to Gemfile.
 
 To make sure __pry-toys__ has been successfully added to __pry__, run the following in your terminal:
 
-    pry --installed-plugins
+```ruby
+pry --installed-plugins
+```
 
 If __pry-toys__ gem installed correctly, you should see `toys` as one of the plugins in the list.
 
@@ -50,48 +66,59 @@ Here are some of the things you can do with __pry-toys__:
 
 With only size set
 
-    Array.toy(3) # => [1, 2, 3]
+```ruby
+Array.toy(3) # => [1, 2, 3]
+```
 
 With size & block
-  
-    Array.toy(3) {|i| i + 3} # => [3, 6, 9]
+
+```ruby  
+Array.toy(3) {|i| i + 3} # => [3, 6, 9]
+```
   
 With size & one of the pre-determined objects, such as Integer (default), Float, String, Time, Date set
   
-    Array.toy(3, Float) # => [1.0, 2.0, 3.0]
-    Array.toy(3, String) # => ['tt', 'uuuu', 'cc']
-    Array.toy(3, Time) # => [2014-02-22 08:49:49 -0800,
-                             2014-02-23 08:49:49 -0800,
-                             2014-02-24 08:49:49 -0800]
-    Array.toy(3, Date) # => [#<Date: 2014-02-22 ((2456711j,0s,0n),+0s,2299161j)>,
-                             #<Date: 2014-02-23 ((2456712j,0s,0n),+0s,2299161j)>,
-                             #<Date: 2014-02-24 ((2456713j,0s,0n),+0s,2299161j)>]
+```ruby
+Array.toy(3, Float) # => [1.0, 2.0, 3.0]
+Array.toy(3, String) # => ['tt', 'uuuu', 'cc']
+Array.toy(3, Time) # => [2014-02-22 08:49:49 -0800, 2014-02-23 08:49:49 -0800, 2014-02-24 08:49:49 -0800]
+Array.toy(3, Date) # => [#<Date: 2014-02-22 ((2456711j,0s,0n),+0s,2299161j)>,
+                         #<Date: 2014-02-23 ((2456712j,0s,0n),+0s,2299161j)>,
+                         #<Date: 2014-02-24 ((2456713j,0s,0n),+0s,2299161j)>]
+```                        
 
 With size & an unknown object (that responds to new)
 
-    Array.toy(3, Object) # => [#<Object:0x007fa36e9b9128>,
-                            #<Object:0x007fa36e9b9100>,
-                            #<Object:0x007fa36e9b90d8>]
+```ruby
+Array.toy(3, Object) # => [#<Object:0x007fa36e9b9128>,
+                           #<Object:0x007fa36e9b9100>,
+                           #<Object:0x007fa36e9b90d8>]
+```
 
 #### Hashes
 
 With size set, you can make Hash as small or as big as you want:
 
-    Hash.toy(3) # => {a: 1, b: 2, c: 3}
+```ruby
+Hash.toy(3) # => {a: 1, b: 2, c: 3}
+```
 
 Or as large as 100000 (or larger)
-    
-    h = Hash.toy(100000)
-    h.keys.last # => "eqxd"
-    h.values.last # => 100000
-    h # => {a: 1, ...., eqxd: 100000}
+ 
+```ruby   
+h = Hash.toy(100000)
+h.keys.last # => "eqxd"
+h.values.last # => 100000
+h # => {a: 1, ...., eqxd: 100000}
+```
 
 #### Strings
 
 Creates a string with certain number of words. In this case, words are random collection of letters (not actual words).
 
-    String.toy(3) # => "mmmmmmmm xxxx hhhhhh"
-
+```ruby
+String.toy(3) # => "mmmmmmmm xxxx hhhhhh"
+```
 
 ## Contributing
 
