@@ -1,3 +1,5 @@
+require 'date'
+
 ##
 # Reopening Array class to add toy method
 Array.class_eval do
