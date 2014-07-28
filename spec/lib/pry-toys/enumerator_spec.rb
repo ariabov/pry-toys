@@ -14,6 +14,11 @@ describe Enumerator do
       expect(toy.take(3)).to eq([1, 2, 3])
     end
 
+    it 'has infinite size' do
+      pending 'Only usable in Ruby 2 or greater' unless RUBY_VERSION.split.first.to_i >= 2
+      expect(toy.size).to eq(Float::INFINITY)
+    end
+
     include_examples "no nil values"
   end
 

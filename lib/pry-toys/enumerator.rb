@@ -40,7 +40,7 @@ Enumerator.class_eval do
   def self.toy(type=Integer, &block)
     build_toy(type, 0) # ensure that toy can be built
 
-    Enumerator.new do |yielder|
+    build_enum do |yielder|
       i = 0
 
       loop do
@@ -73,6 +73,14 @@ Enumerator.class_eval do
     else
       raise NoNewMethodError, 'Please provide Object that responds to `new` call' unless type.respond_to? :new
       type.send(:new)
+    end
+  end
+
+  def self.build_enum(&block)
+    if RUBY_VERSION.split.last.to_i >= 2
+      Enumerator.new(Float::INFINITY, &block)
+    else
+      Enumerator.new(&block)
     end
   end
 end

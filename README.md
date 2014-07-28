@@ -97,7 +97,13 @@ Array.toy(3, Object) # => [#<Object:0x007fa36e9b9128>,
 
 #### Enumerators
 
-Enumerators are always infinite. You can set the type the same way like in Array:
+Enumerators are always infinite (Ruby 2):
+
+```ruby
+Enumerator.toy.size # => Infinity
+```
+
+You can set the type the same way like in Array:
 
 ```ruby
 Enumerator.toy(Time) # => #<Enumerator: ...>
