@@ -95,6 +95,26 @@ Array.toy(3, Object) # => [#<Object:0x007fa36e9b9128>,
                            #<Object:0x007fa36e9b90d8>]
 ```
 
+#### Enumerators
+
+Enumerators are always infinite. You can set the type the same way like in Array:
+
+```ruby
+Enumerator.toy(Time) # => #<Enumerator: ...>
+Enumerator.toy(Time).take(3)  # => [#<Date: 2014-02-22 ((2456711j,0s,0n),+0s,2299161j)>,
+                                    #<Date: 2014-02-23 ((2456712j,0s,0n),+0s,2299161j)>,
+                                    #<Date: 2014-02-24 ((2456713j,0s,0n),+0s,2299161j)>]
+```
+
+When passing a block, it will be executed lazily:
+```
+> enum = Enumerator.toy {|i| puts "Called with #{i}" }
+> enum.next
+Called with 0
+> enum.next
+Called with 1
+```
+
 #### Hashes
 
 With size set, you can make Hash as small or as big as you want:
