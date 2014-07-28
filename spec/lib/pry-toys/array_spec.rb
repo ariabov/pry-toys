@@ -3,7 +3,7 @@ require 'spec_helper'
 describe Array do
   shared_examples "no nil values" do
     it "does not contain `nil` value" do
-      expect(toy.include? nil).to be_false
+      expect(toy).not_to include(nil)
     end
   end
 
@@ -72,7 +72,7 @@ describe Array do
         end
 
         it "returned Time objects are 1 day apart" do
-          expect(toy[1]).to eq (toy[0] + day)
+          expect(toy[1]).to be_within(1).of(toy[0] + day)
         end
       end
 
@@ -85,7 +85,7 @@ describe Array do
         end
 
         it "returns Date object 1 day apart" do
-          expect(toy[1]).to eq (toy[0] + day)
+          expect(toy[1]).to be_within(1).of(toy[0] + day)
         end
       end
 
