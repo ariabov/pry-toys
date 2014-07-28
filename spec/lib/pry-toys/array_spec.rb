@@ -72,7 +72,7 @@ describe Array do
         end
 
         it "returned Time objects are 1 day apart" do
-          expect(toy[1]).to eq (toy[0] + day)
+          expect(toy[1]).to be_within(1).of(toy[0] + day)
         end
       end
 
@@ -85,7 +85,7 @@ describe Array do
         end
 
         it "returns Date object 1 day apart" do
-          expect(toy[1]).to eq (toy[0] + day)
+          expect(toy[1]).to be_within(1).of(toy[0] + day)
         end
       end
 
