@@ -4,7 +4,7 @@ Array.class_eval do
 
   ##
   # Creates an array of objects based on the input
-  # 
+  #
   # For example, it will work with the following inputs:
   #
   # == Size
@@ -26,7 +26,7 @@ Array.class_eval do
   # String.toy(3, Date) # => [#<Date: 2014-02-22 ((2456711j,0s,0n),+0s,2299161j)>,
   #                           #<Date: 2014-02-23 ((2456712j,0s,0n),+0s,2299161j)>,
   #                           #<Date: 2014-02-24 ((2456713j,0s,0n),+0s,2299161j)>]
-  # 
+  #
   # == Size & an unknown object (that responds to new)
   #
   # String.toy(3, Object) # => [#<Object:0x007fa36e9b9128>,
@@ -50,14 +50,13 @@ Array.class_eval do
     when 'Date'
       date_now = Date.today
       Array.new(n) {|i| date_now + (i * 1) }
+    when 'Random'
+      Array.new(n) { Random.rand }
     else
-      Array.new(n) do 
+      Array.new(n) do
         type.send(:new) rescue
           raise NoNewMethodError, 'Please provide Object that responds to `new` call'
       end
     end
   end
 end
- 
-
- 
